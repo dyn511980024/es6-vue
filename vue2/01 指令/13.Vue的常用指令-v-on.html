@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13.Vue的常用指令-v-on</title>
+</head>
+<body>
+ <div id="app">
+     <p :style="{color:fontColor}">{{msg}}</p>
+     <button v-on:click="msg = '今天好热呀！'">改变内容</button>
+     <button @click="changeContent()">改变内容1</button>
+     <button @click="changeContentColor()">改变内容1</button>
+ </div>
+
+ <script src="js/vue.js"></script>
+ <script>
+     new Vue({
+         el: '#app',
+         data:{
+             msg: '今天天气有雾霾！',
+             fontColor:'red'
+         },
+         methods:{//实力的所有函数实现
+             changeContent(){
+                // alert(0);
+                 this.msg='测试改天'
+             },
+             changeContentColor(){
+                 this.fontColor='orange'
+             }
+
+         }
+     });
+  </script>
+</body>
+</html>

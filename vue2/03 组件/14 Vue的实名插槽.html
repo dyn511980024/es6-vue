@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14 Vue的实名插槽</title>
+</head>
+<body>
+     <div id="app">
+         <my-computer>
+             <div slot="cpu">inter cpre 18</div>
+             <img slot="gpu" src="'img/img_02" width="100" alt="">
+         </my-computer>
+     </div>
+
+     <template id="my_computer">
+          <div id="main">
+              <slot name="cpu">这里是查cpu的</slot>
+              <slot name="gpu">这里是查cpu的</slot>
+              <slot name="memory">这里是查cpu的</slot>
+              <slot name="hard-drive">这里是查cpu的</slot>
+
+          </div>
+     </template>
+
+     <script src="js/vue.js"></script>
+     <script>
+         Vue.component('my-computer',{
+             template:'#my_computer'
+         })
+
+         new Vue({
+             el: '#app',
+             data:{
+                 msg: '今天天气有雾霾！'
+             }
+         });
+      </script>
+</body>
+</html>

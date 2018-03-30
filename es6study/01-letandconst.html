@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<!--<button>1按钮</button>
+<button>2按钮</button>
+<button>3按钮</button>
+<button>4按钮</button>
+<button>5按钮</button>-->
+<body>
+<script text="type/html">
+    //let 和 const声明 变量和常量 var
+
+    //01-作用于只局限于当前代码块
+   /* {
+        var str ='张三';
+        console.log(str);//张三
+
+        let str1='李四';
+        console.log(str1);//李四
+    }
+    console.log('+++++'+ str );//张三
+    console.log('-----'+ str1 );//李四
+    */
+
+   //02-使用let声明的变量作用域不会被提升
+   /* {
+        console.log(str1);// undefined
+        var str1 ='张三';
+
+        var str1;
+        console.log(str1);//undefined
+        str1='张三'；
+    }*/
+
+  /* {
+        console.log(str);//ReferenceError: str is not defined
+        let str ='李四';
+    }*/
+
+    //03 - 在相同的作用域下不能申明相同的变量
+
+   /* {
+        var str1 = '张三';
+        var str1 ='李四';
+
+        console.log(str1);//李四
+
+        let str2 ='王五';
+        let str2 ='赵六';
+
+        console.log(str2);//Identifier 'str2' has already been declared
+    }*/
+
+    //04-for 循环体现let的父子作用域
+   /*
+   var btns = document.querySelectorAll('button');
+    for(var i=0; i<btns.length;i++ ){
+        btns[i].onclick=function(){
+            alert('点击了第'+ i + '个按钮');
+        }
+    }
+    // 点击一直为4，ES5采用闭包，传入立即函数
+    */
+
+  /*
+  //ES5闭包，传入立即函数
+  var btns = document.querySelectorAll('button');
+    for(var i=0; i<btns.length;i++ ){
+        (function(i){
+            btns[i].onclick=function(){
+                alert('点击了第'+ i + '个按钮');
+            }
+        })(i);
+    }
+    */
+
+   /* let btns = document.querySelectorAll('button');
+    for(let i=0; i<btns.length;i++ ){
+        btns[i].onclick=function(){
+            alert('点击了第'+ i + '个按钮');
+        }
+    }
+    //输出0、1、2、3、4；
+    */
+
+   /* for (var i =0;i<5;i++){
+        console.log(i);
+    }//输出0、1、2、3、4
+    for (let i =0;i<5;i++){
+        let i=20;
+        console.log(i);
+    }
+    //输出5个20；*/
+</script>
+
+<script>
+    //01-只在当前代码块有效
+   /* {
+        const a = '张三';
+        console.log(a);//张三
+    }
+    console.log(a);//a is not defined
+    */
+    //02 作用域不会被提升
+
+    //03-不能被重复申明
+
+    //04-申明的常量必须赋值
+    /*{
+        const name;
+        name = 'zhangsan';
+        console.log(name);
+    }*/
+    /*{
+        const name = '张三';
+        name='李四';
+        console.log(name);
+    }*/
+
+   /* const obj ={name: '张三'}；
+    console.log(obj);
+
+    obj.name='李四';
+    console.log(obj);*/
+</script>
+</body>
+</html>

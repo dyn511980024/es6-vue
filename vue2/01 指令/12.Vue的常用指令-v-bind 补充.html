@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12.Vue的常用指令-v-bind 补充</title>
+</head>
+<style>
+    .active{
+        background-color: orangered;
+        font-size:20px;
+        color: #fff;
+    }
+</style>
+<body>
+ <div id="app">
+     <p v-for="(c,index) in collage" :class="index===2 ? 'active':''">
+         {{c}}
+     </p>
+     <p :style="{color:fontColor}">今天雾霾</p>
+ </div>
+
+ <script src="js/vue.js"></script>
+ <script>
+     new Vue({
+         el: '#app',
+         data:{
+             collage: [
+                 'ios',
+                 'android',
+                 'html',
+                 'ui',
+                 'vr'
+             ],
+             fontColor:'green'
+         }
+     });
+  </script>
+</body>
+</html>
